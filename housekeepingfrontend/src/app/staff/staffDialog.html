@@ -1,0 +1,77 @@
+<h2 mat-dialog-title>{{ action }} Room</h2>
+<mat-dialog-content>
+
+    <!-- Input fields for user information -->
+    <!-- <mat-form-field class="w-100">
+        <mat-label>User ID</mat-label>
+        <input matInput class="w-100" [(ngModel)]="userId">
+    </mat-form-field> -->
+
+    <mat-form-field class="w-100">
+        <mat-label>User Name</mat-label>
+        <input matInput class="w-100" [(ngModel)]="userName">
+    </mat-form-field>
+
+    <ng-container ngIf="action === 'Add'">
+        <!-- Add your content here for the 'Add' action -->
+        <mat-form-field class="w-100">
+            <mat-label>password</mat-label>
+            <input matInput class="w-100" [(ngModel)]="password">
+        </mat-form-field>
+    </ng-container>
+
+
+    <mat-form-field class="w-100">
+        <mat-label>First Name</mat-label>
+        <input matInput class="w-100" [(ngModel)]="firstName">
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+        <mat-label>Last Name</mat-label>
+        <input matInput class="w-100" [(ngModel)]="lastName">
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+        <mat-label>Phone</mat-label>
+        <input matInput class="w-100" [(ngModel)]="phone">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Role</mat-label>
+        <mat-select [(ngModel)]="role" name="roomstatus" required>
+            <mat-option value="Admin">Admin</mat-option>
+            <mat-option value="Staff">Staff</mat-option>
+            <mat-option value="Vender">Vender</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Type</mat-label>
+        <mat-select [(ngModel)]="type" name="roomstatus" required>
+            <mat-option value="Admin">Admin</mat-option>
+            <mat-option value="Product Vender">Product Vender</mat-option>
+            <mat-option value="Mattress  Vender">Mattress Vender</mat-option>
+
+            <mat-option value="RoomService">RoomService</mat-option>
+            <mat-option value="Receptionist">Receptionist</mat-option>
+        </mat-select>
+        <!-- <mat-error *ngIf="!roomStatus">Room Status is required</mat-error> -->
+    </mat-form-field>
+
+
+    <mat-form-field class="w-100">
+        <mat-label>Address</mat-label>
+        <input matInput class="w-100" [(ngModel)]="address">
+    </mat-form-field>
+
+
+    <!-- <mat-form-field class="w-100">
+        <mat-label>Hire Date</mat-label>
+        <input matInput class="w-100" [(ngModel)]="hireDate">
+    </mat-form-field> -->
+
+</mat-dialog-content>
+<mat-dialog-actions class="ms-4">
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="" cdkFocusInitial (click)="staff()">Submit</button>
+</mat-dialog-actions>

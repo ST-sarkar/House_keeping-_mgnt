@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>{{action}} Task</h2>
+<mat-dialog-content>
+
+
+<!-- 
+    <mat-form-field>
+        <mat-label>Room Number</mat-label>
+        <input matInput [(ngModel)]="roomNumber">
+    </mat-form-field> -->
+
+    <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Room Number</mat-label>
+        <mat-select [(ngModel)]="roomNumber" name="roomstatus" required>
+            <!-- <mat-option  [value]="room.roomNumber"></mat-option> -->
+            <ng-container  *ngFor="let room of allRooms">
+                <mat-option  value="{{room.roomNumber}}" >{{room.roomNumber}}</mat-option>
+            </ng-container>
+        </mat-select>
+        <!-- <mat-error *ngIf="!paymentType">Payment Type is required</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Assigned To</mat-label>
+        <mat-select [(ngModel)]="staffId" name="roomstatus" required>
+            <ng-container  *ngFor="let staff of allStaff">
+                <mat-option  value="{{staff.id}}" >{{staff.id}} {{staff.firstName}} {{staff.lastName}}</mat-option>
+            </ng-container>
+        </mat-select>
+        <!-- <mat-error *ngIf="!paymentType">Payment Type is required</mat-error> -->
+    </mat-form-field>
+
+
+      <mat-form-field  appearance="fill" class="w-100">
+        <mat-label>Status</mat-label>
+        <mat-select [(ngModel)]="status" name="roomstatus" required >
+          <mat-option value="Pending">Pending</mat-option>
+          <mat-option value="Completed">Completed</mat-option>
+          <mat-option value="In-Progress">In-Progress</mat-option>
+        </mat-select>
+        <!-- <mat-error *ngIf="!paymentType">Payment Type is required</mat-error> -->
+      </mat-form-field>
+
+    <mat-form-field  class="w-100">
+        <mat-label>Description</mat-label>
+        <input matInput class="w-100" [(ngModel)]="description">
+    </mat-form-field>
+
+
+</mat-dialog-content>
+<mat-dialog-actions class="ms-4">
+    <button mat-button (click)="onNoClick()">Cancle</button>
+    <button mat-button [mat-dialog-close]="" cdkFocusInitial (click)="Task()">Submit</button>
+</mat-dialog-actions>

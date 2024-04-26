@@ -1,0 +1,14 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  list-style-type: none;
+}
+
+.nav-item {
+  margin-right: 20px; /* Adjust as needed */
+}
+
+.example-spacer {
+  flex: 1;
+}

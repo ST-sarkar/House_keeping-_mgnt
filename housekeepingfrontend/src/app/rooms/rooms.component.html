@@ -1,0 +1,42 @@
+<div class="container ">
+
+    <div class="row mt-4 text-center ">
+        <h1 class="fs-1 fw-bold">Rooms </h1>
+    </div>
+    <div class="row mt-1 ms-3 me-3 w-100">
+        <button mat-flat-button color="primary" (click)="openDialog('Add', -1)">Add New Room</button>
+
+    </div>
+    <div class="row p-3">
+        <div class="col-lg-3" *ngFor="let room of rooms">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title class="fs-2 ms-2">Room No {{room.roomNumber}} </mat-card-title>
+                    <mat-card-subtitle></mat-card-subtitle>
+                    
+                </mat-card-header>
+                <div class="row p-4 pt-4 pb-2">
+                    <div class="col-8">
+                        <h5>Room Status</h5>
+                    </div>
+                    <div class="col-4">{{room.roomStatus}}</div>
+                </div>
+                <div class="row p-4 pt-2 pb-2  pe-1">
+                    <div class="col-6 ">
+                        <h5>Description</h5>
+                    </div>
+                    <div class="col-6 ">{{room.roomDescription}}</div>
+                </div>
+                <mat-card-actions>
+                    <button mat-button (click)="openDialog('Edit',room.roomNumber)">
+                        <mat-icon class="icon">edit</mat-icon>
+                    </button>
+                    <button mat-button (click)="deleteRoom(room.roomNumber)"><mat-icon color="warn"
+                            class="icon">delete</mat-icon></button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+    </div>
+
+</div>
